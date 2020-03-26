@@ -1,0 +1,29 @@
+/* 
+/* INSTALACIÓN EN LOCAL DE APACHE CASSANDRA:
+/* 
+/* >> Descargar VM Ubuntu 16.04: https://www.osboxes.org/ubuntu/
+/* 
+/* >> Dicha VM dispone de forma nativa de Python 2.7, necesario para correr Apache Cassandra.
+/* 
+/* >> Instalación OpenJDK JRE8:
+/* >>>> $ sudo apt install openjdk-8-jre -y
+/* >>>> $ java -version
+/* 
+/* >> Instalación última distribución estable Apache Cassandra 3.11.x:
+/* >>>> $ echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+/* >>>> $ curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+/* >>>> $ sudo apt-get update
+/* >>>> $ sudo apt-key adv --keyserver pool.sks-keyservers.net --recv-key A278B781FE4B2BDA
+/* >>>> $ sudo apt-get update
+/* >>>> $ sudo apt-get install cassandra
+/* 
+/* >> Arrancar Apache Cassandra como servicio local:
+/* >>>> $ sudo service cassandra start
+/* >>>> $ nodetool status
+/* >>>> $ cqlsh localhost
+/*
+/* Tip: para realizar determinadas consultas es necesario crear funciones de usuario. Para ello, primero es necesario poner a TRUE el parámetro enable_user_defined_functions en el fichero cassandra.yaml que se encuentra en la ruta /etc/cassandra.
+/*
+/* REFERENCIAS:
+/* https://www.vultr.com/docs/how-to-install-apache-cassandra-3-11-x-on-ubuntu-16-04-lts
+/* https://github.com/pmcfadin/killrvideo-sample-schema/blob/master/killrvideo-schema.cql
